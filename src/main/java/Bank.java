@@ -9,8 +9,14 @@
  */
 public class Bank {
 
+    /*
+     *
+     */
     public String bankName;
 
+    /*
+     *
+     */
     public Bank() {
         bankName = "Illini Bank";
     }
@@ -29,6 +35,12 @@ public class Bank {
         /*
          * Implement this function
          */
+        if (bankAccount.getAccountBalance() > amount) {
+            bankAccount.setAccountBalance(bankAccount.getAccountBalance() - amount);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -45,6 +57,8 @@ public class Bank {
         /*
          * Implement this function
          */
+        bankAccount.setAccountBalance(bankAccount.getAccountBalance() + amount);
+        return true;
     }
 
     /**
@@ -64,6 +78,9 @@ public class Bank {
         /*
          * Implement this function
          */
+        source.setAccountBalance(source.getAccountBalance() - amount);
+        destination.setAccountBalance(destination.getAccountBalance() + amount);
+        return true;
     }
 
     /**
@@ -77,6 +94,7 @@ public class Bank {
         /*
          * Implement this function
          */
+        bankAccount.setOwnerName(name);
     }
 
     public static int totalAccounts = 0;
@@ -89,6 +107,7 @@ public class Bank {
         /*
          * Implement this function
          */
+        return totalAccounts;
     }
 
     /**
@@ -118,6 +137,7 @@ public class Bank {
 
         // Transfer money from Account 2 to Account 1 and print new balances
         bank.transferMoney(account2, account1, 350.0);
+        System.out.println(account2.getAccountBalance());
 
         // Print number of accounts
         System.out.print("Number of active accounts at " + bank.bankName + " are ");
